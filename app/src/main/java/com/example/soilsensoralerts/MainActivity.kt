@@ -170,7 +170,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetch(pageNumber: Int): Pair<Int, List<SensorAlert>> {
-        val url = "$apiBase?sortOrder=desc&sortBy=timestamp&page=$pageNumber&size=$size"
+        val url = "$apiBase?page=$pageNumber&size=$size&sortOrder=desc&sortBy=timestamp"
         val request = Request.Builder().url(url).get().build()
 
         client.newCall(request).execute().use { response ->
