@@ -1,22 +1,20 @@
-# Soil Sensor Alerts — Expo React Native
+# Soil Sensor Alerts Android App
 
-This project displays timestamp, field ID, crop, and SMS alert messages from:
+Displays `timestamp`, `field_id`, `crop`, and `sms_alert_message` from:
 
-https://wh-integration-assets.onrender.com/open/v1/sensor-result
+`https://wh-integration-assets.onrender.com/open/v1/sensor-result`
 
-## Build the APK with GitHub — no Android Studio and no Expo account
+Pagination request:
+`?page=<page>&size=10`
 
-1. Create a GitHub repository, for example `soil-sensor-alerts`.
-2. Upload all files from this project to the repository.
-3. Commit/push to the `main` branch.
-4. Open the repository's **Actions** tab.
-5. Select **Build Android APK**.
-6. Click **Run workflow** if it did not start automatically.
-7. Wait for the workflow to finish.
-8. Open the completed workflow run.
-9. Under **Artifacts**, download `SoilSensorAlerts-debug-apk`.
-10. Extract the downloaded artifact ZIP and install `app-debug.apk` on your Android phone.
+## Build
+Open this folder in Android Studio, let Gradle sync, then:
 
-The workflow uses GitHub-hosted runners, generates the native Android project with Expo prebuild, builds the APK with Gradle, and uploads the APK as a GitHub Actions artifact.
+Build > Build Bundle(s) / APK(s) > Build APK(s)
 
-No Android Studio and no Expo account are required for this build workflow.
+Or from a machine with Gradle available:
+
+`./gradlew assembleDebug`
+
+APK:
+`app/build/outputs/apk/debug/app-debug.apk`
