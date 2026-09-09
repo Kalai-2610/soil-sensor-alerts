@@ -24,7 +24,7 @@ data class SensorAlert(
 
 class MainActivity : AppCompatActivity() {
     private val apiBase =
-        "https://wh-integration-assets.onrender.com/open/v1/sensor-result?sortOrder=desc&sortBy=timestamp"
+        "https://wh-integration-assets.onrender.com/open/v1/sensor-result"
 
     private val client = OkHttpClient()
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
@@ -170,7 +170,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetch(pageNumber: Int): Pair<Int, List<SensorAlert>> {
-        val url = "$apiBase?page=$pageNumber&size=$size"
+        val url = "$apiBase?sortOrder=desc&sortBy=timestamp&page=$pageNumber&size=$size"
         val request = Request.Builder().url(url).get().build()
 
         client.newCall(request).execute().use { response ->
